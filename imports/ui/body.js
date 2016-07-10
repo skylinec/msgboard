@@ -6,16 +6,8 @@ import './body.html';
 
 Template.body.helpers({
     tasks() {
-        var taskArray = new Array();
-        var collection;
-        collection = Tasks.find({});
-        collection.forEach(function(data){
-            var obj = {text: data.text, createdAt: data.createdAt};
-            taskArray.push(obj);
-        });
-
-        taskArray.sort(function(a, b){return b.createdAt - a.createdAt;});
-        return taskArray;
+        // Show newest messages at the top
+        return Tasks.find({}, { sort: { createdAt: -1 } });
     },
 });
 
