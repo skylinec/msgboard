@@ -4,15 +4,15 @@
             <h1>Message Board</h1>
         </header>
 
+        <form class="new-task">
+            <input type="text" name="text" placeholder="Type to add a new message" />
+        </form>
+
         <ul>
             {{#each tasks}}
                 {{> task}}
             {{/each}}
         </ul>
-
-        <form class="new-task">
-            <input type="text" name="text" placeholder="Type to add new tasks" />
-        </form>
     </div>
 </body>
 

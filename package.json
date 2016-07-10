@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "diy-handlebars-helpers": "^1.0.10",
     "meteor-node-stubs": "~0.2.0"
   }
 }
