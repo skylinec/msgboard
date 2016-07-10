@@ -4,6 +4,8 @@ import { Tasks } from '../api/tasks.js';
 
 import './body.html';
 
+import './task.js';
+
 Template.body.helpers({
     tasks() {
         // Show newest messages at the top
@@ -32,5 +34,9 @@ Template.body.events({
 
         // Clear form
         target.text.value = '';
+    },
+    'click .clear'(event) {
+        event.preventDefault();
+        Tasks.delete({});
     }
 })
