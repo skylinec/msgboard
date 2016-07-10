@@ -21,10 +21,14 @@ Template.body.events({
         const text = target.text.value;
 
         // Insert a task into the collection
-        Tasks.insert({
-            text,
-            createdAt: new Date(),
-        });
+        if (text == '' | text.length < 5) {
+            return false
+        } else {
+            Tasks.insert({
+                text,
+                createdAt: new Date(),
+            });
+        }
 
         // Clear form
         target.text.value = '';
