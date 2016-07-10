@@ -7,3 +7,6 @@ node_js:
 
 before_install:
   - "curl -L http://git.io/ejPSng | /bin/sh"
+
+notifications:
+  email: false
