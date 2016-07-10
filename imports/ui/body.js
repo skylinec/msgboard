@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 import { Template } from 'meteor/templating';
 
 import { Tasks } from '../api/tasks.js';
@@ -5,6 +7,10 @@ import { Tasks } from '../api/tasks.js';
 import './body.html';
 
 import './task.js';
+
+Template.body.onCreated(function bodyOnCreated() {
+    Meteor.subscribe('tasks');
+});
 
 Template.body.helpers({
     tasks() {
@@ -29,8 +35,12 @@ Template.body.events({
             Tasks.insert({
                 text,
                 createdAt: new Date(),
+                owner: Meteor.userId(),
+                username: Meteor.user().username,
             });
         }
+
+        Meteor.call('tasks.insert', text);
 
         // Clear form
         target.text.value = '';

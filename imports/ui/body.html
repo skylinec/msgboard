@@ -2,12 +2,13 @@
     <div class="container">
         <header>
             <h1>Message Board</h1>
+            {{> loginButtons }}
         </header>
-
-        <form class="new-task">
-            <input type="text" name="text" placeholder="Type to add a new message" />
-        </form>
-
+        {{#if currentUser}}
+            <form class="new-task">
+                <input type="text" name="text" placeholder="Type to add a new message" />
+            </form>
+        {{/if}}
         <ul>
             {{#each tasks}}
                 {{> task}}
